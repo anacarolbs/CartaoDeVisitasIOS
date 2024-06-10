@@ -1,11 +1,19 @@
 //
-//  ViewController.swift
-//  Bankey
+//  LoginViewController.swift
+//  CartaoDeVisitasIOS
 //
-//  Created by jrasmusson on 2021-09-23.
+//  Created by Ana Carolina Barbosa de Souza on 10/06/24.
 //
 
 import UIKit
+
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
+
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
 
 class LoginViewController: UIViewController {
 
@@ -15,6 +23,8 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     var username: String? {
         return loginView.usernameTextField.text
@@ -28,6 +38,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        signInButton.configuration?.showsActivityIndicator = false
     }
 }
 
@@ -120,6 +135,7 @@ extension LoginViewController {
             return
         }
 
+        // Temporarily turn off this check
 //        if username.isEmpty || password.isEmpty {
 //            configureView(withMessage: "Username / password cannot be blank")
 //            return
@@ -127,6 +143,7 @@ extension LoginViewController {
         
         if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin()
         } else {
             configureView(withMessage: "Incorrect username / password")
         }
@@ -137,3 +154,5 @@ extension LoginViewController {
         errorMessageLabel.text = message
     }
 }
+
+

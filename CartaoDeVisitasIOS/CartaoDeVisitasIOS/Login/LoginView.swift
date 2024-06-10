@@ -1,8 +1,8 @@
 //
 //  LoginView.swift
-//  Bankey
+//  CartaoDeVisitasIOS
 //
-//  Created by jrasmusson on 2021-09-23.
+//  Created by Ana Carolina Barbosa de Souza on 10/06/24.
 //
 
 import Foundation
