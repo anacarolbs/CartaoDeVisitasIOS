@@ -69,7 +69,7 @@ extension LoginViewController {
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.configuration = .filled()
         signInButton.configuration?.imagePadding = 8 // for indicator spacing
-        signInButton.setTitle("Sign In", for: [])
+        signInButton.setTitle("Registre-se", for: [])
         signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
         
         errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -131,21 +131,21 @@ extension LoginViewController {
     
     private func login() {
         guard let username = username, let password = password else {
-            assertionFailure("Username / password should never be nil")
+            assertionFailure("Usuário / senha não devem ser nulos")
             return
         }
 
-        // Temporarily turn off this check
-//        if username.isEmpty || password.isEmpty {
-//            configureView(withMessage: "Username / password cannot be blank")
-//            return
-//        }
+        
+        if username.isEmpty || password.isEmpty {
+            configureView(withMessage: "Usuário / senha não podem estar em branco")
+            return
+        }
         
         if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
         } else {
-            configureView(withMessage: "Incorrect username / password")
+            configureView(withMessage: "Usuário ou senha incorreto")
         }
     }
     

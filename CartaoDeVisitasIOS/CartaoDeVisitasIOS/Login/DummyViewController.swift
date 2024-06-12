@@ -30,12 +30,12 @@ extension DummyViewController {
         stackView.spacing = 20
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Welcome"
+        label.text = "Bem-vindo(a)"
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.configuration = .filled()
-        logoutButton.setTitle("Logout", for: [])
+        logoutButton.setTitle("Sair", for: [])
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .primaryActionTriggered)
     }
     

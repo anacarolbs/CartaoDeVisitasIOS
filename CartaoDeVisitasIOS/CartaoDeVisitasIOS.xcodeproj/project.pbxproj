@@ -66,8 +66,8 @@
 			children = (
 				8EF398D92C192AD80027EEBC /* Utils */,
 				8EF398D62C1899E20027EEBC /* Files */,
-				8EF398D02C17AC5D0027EEBC /* Onboarding */,
 				8EF398CA2C17ABF80027EEBC /* Login */,
+				8EF398D02C17AC5D0027EEBC /* Onboarding */,
 				8EF398B52C1745CF0027EEBC /* AppDelegate.swift */,
 				8EF398B92C1745CF0027EEBC /* ViewController.swift */,
 			);
